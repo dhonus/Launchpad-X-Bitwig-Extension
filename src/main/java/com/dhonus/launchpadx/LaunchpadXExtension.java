@@ -46,6 +46,28 @@ public class LaunchpadXExtension extends ControllerExtension
       hs = host.createHardwareSurface();
       hs.setPhysicalSize(241, 241);
 
+      TrackBank tb = host.createTrackBank(8, 0, 8, true);
+      tb.setSkipDisabledItems(true);
+
+      tb.sceneBank().setIndication(true);
+
+      Preferences prefs = host.getPreferences();
+      BooleanValue mViewableBanks = prefs.getBooleanSetting("Viewable Bank?", "Behavior", true);
+
+      mViewableBanks.addValueObserver(vb -> {
+         tb.sceneBank().setIndication(vb);
+      });
+
+      /*for(int i = 0; i < tb.getCapacityOfBank(); i++) {
+
+         tb.getItemAt(i).name().markInterested();
+            tb.getItemAt(i).volume().markInterested();
+            tb.getItemAt(i).volume().setIndication(true);
+            tb.getItemAt(i).pan().markInterested();
+            tb.getItemAt(i).pan().setIndication(true);
+            tb.getItemAt(i).mute().markInterested();
+      }*/
+
       ///////////////////////
       // LOGO light
       logoButton = new CCButton(
@@ -92,10 +114,20 @@ public class LaunchpadXExtension extends ControllerExtension
               host.getMidiInPort(0).createCCActionMatcher(0, 89, 127)
       );
 
-
-
       mixerVolumeButton.getHardwareLight().state().setValue(new Light(3));
 
+      CCButton mixerPanButton = new CCButton(
+              host.getMidiInPort(0),
+              host.getMidiOutPort(0),
+              hs,"MixerPanButton", 79);
+
+      mixerPanButton.getButton().pressedAction().setActionMatcher(
+              host.getMidiInPort(0).createCCActionMatcher(0, 79, 127)
+      );
+
+      mixerPanButton.getHardwareLight().state().setValue(new Light(3));
+
+      SessionMode sm = new SessionMode(host, hs, tb);
 
       // color and prog mode off
       host.getMidiOutPort(1).sendSysex("F0 00 20 29 02 0C 03 00 63 35 F7");
@@ -104,6 +136,8 @@ public class LaunchpadXExtension extends ControllerExtension
 
       host.showPopupNotification("LaunchpadX Initialized");
       host.println("good");
+
+
    }
 
    @Override
