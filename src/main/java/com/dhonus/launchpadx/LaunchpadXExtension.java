@@ -59,7 +59,6 @@ public class LaunchpadXExtension extends ControllerExtension
       });
 
       /*for(int i = 0; i < tb.getCapacityOfBank(); i++) {
-
          tb.getItemAt(i).name().markInterested();
             tb.getItemAt(i).volume().markInterested();
             tb.getItemAt(i).volume().setIndication(true);
@@ -78,8 +77,6 @@ public class LaunchpadXExtension extends ControllerExtension
               host.getMidiInPort(0).createCCActionMatcher(0, 99, 0)
       );
       logoButton.getHardwareLight().state().setValue(new Light(17));
-
-
 
       ///////////////////////
       // RECORD button creation and binding
@@ -132,7 +129,6 @@ public class LaunchpadXExtension extends ControllerExtension
       // color and prog mode off
       host.getMidiOutPort(1).sendSysex("F0 00 20 29 02 0C 03 00 63 35 F7");
       //host.getMidiOutPort(1).sendSysex("F0 00 20 29 02 0C 0E 00 F7");
-
 
       host.showPopupNotification("LaunchpadX Initialized");
       host.println("good");

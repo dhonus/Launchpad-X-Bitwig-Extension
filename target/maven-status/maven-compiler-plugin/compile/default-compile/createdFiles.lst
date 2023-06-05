@@ -1,7 +1,11 @@
 com\dhonus\launchpadx\CCButton.class
+com\dhonus\launchpadx\GridButton$1.class
 com\dhonus\launchpadx\Hardware.class
 com\dhonus\launchpadx\Mode.class
 com\dhonus\launchpadx\Light.class
+com\dhonus\launchpadx\SessionMode.class
+com\dhonus\launchpadx\GridButton.class
 com\dhonus\launchpadx\LaunchpadXExtension.class
 com\dhonus\launchpadx\CCButton$1.class
 com\dhonus\launchpadx\LaunchpadXExtensionDefinition.class
+com\dhonus\launchpadx\SessionLight.class

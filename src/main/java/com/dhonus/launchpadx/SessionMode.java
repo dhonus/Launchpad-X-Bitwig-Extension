@@ -54,10 +54,21 @@ public class SessionMode {
                 host.getMidiInPort(0).createCCActionMatcher(0, 82, 127)
         );
         rightButton.getHardwareLight().state().setValue(new Light(3));
-
     }
 
     private void gridButtons() {
+        /* The mappings for the array are:
+
+            81 82 83 84 85 86 87 88 | CC 89
+            71 72 73 74 75 76 77 78 | CC 79
+            61 62 63 64 65 66 67 68 | CC 69
+            51 52 53 54 55 56 57 58 | CC 59
+            41 42 43 44 45 46 47 48 | CC 49
+            31 32 33 34 35 36 37 38 | CC 39
+            21 22 23 24 25 26 27 28 | CC 29
+            11 12 13 14 15 16 17 18 | CC 19
+
+         */
         for (int i = 0; i < 8; i++) {
             int note = 0x68 + i;
             for (int j = 0; j < 8; j++) {

@@ -83,12 +83,14 @@ public class LaunchpadXExtensionDefinition extends ControllerExtensionDefinition
          // TODO: Set the correct names of the ports for auto detection on Windows platform here
          // and uncomment this when port names are correct.
          //list.add(new String[]{"Input Port 0"}, new String[]{"Output Port 0"});
+         list.add(new String[]{"LPX MIDI", "MIDIIN2 (LPX MIDI)"}, new String[]{"LPX MIDI", "MIDIOUT2 (LPX MIDI)"});
       }
       else if (platformType == PlatformType.LINUX)
       {
          // TODO: Set the correct names of the ports for auto detection on Windows platform here
          // and uncomment this when port names are correct.
          //list.add(new String[]{"Input Port 0"}, new String[]{"Output Port 0"});
+         list.add(new String[]{"LPX MIDI", "MIDIIN2 (LPX MIDI)"}, new String[]{"LPX MIDI", "MIDIOUT2 (LPX MIDI)"});
       }
    }
 
